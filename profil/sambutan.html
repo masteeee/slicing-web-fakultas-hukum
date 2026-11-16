@@ -1,0 +1,425 @@
+<div class="sambutan-outer-wrapper"
+    style="position: relative; width: 100%; margin: 0; padding: clamp(20px, 4vw, 55px) clamp(14px, 3vw, 36px); background-color: #ffffff; box-sizing: border-box; font-family: 'Geist', sans-serif;">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&display=swap');
+
+        .sambutan-outer-wrapper {
+            font-family: 'Geist', sans-serif;
+        }
+
+        .sambutan-card {
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(250, 252, 255, 0.72) 100%),
+                url('https://cms.unpam.ac.id/storage/assets/pages/content/datYTwW06wUPvHpSzn5gUTjT84JAoWwPs16xJKDp.png') center top / cover no-repeat !important;
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.85) !important;
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.09), 0 6px 18px rgba(133, 19, 27, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.95), inset 0 -1px 2px rgba(255, 255, 255, 0.3) !important;
+            font-family: 'Geist', sans-serif;
+        }
+
+        .sambutan-header {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: revert-rule;
+            gap: clamp(16px, 3vw, 32px);
+            margin-bottom: clamp(28px, 4vw, 42px);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .sambutan-foto-col,
+        .sambutan-title-col {
+            flex: 1 1 0;
+            min-width: 0;
+            max-width: 360px;
+            aspect-ratio: 1 / 1;
+            box-sizing: border-box;
+        }
+
+        /* KOTAK FOTO DOSEN */
+        .sambutan-foto-col {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sambutan-foto-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: 0;
+            background-color: #8c1004;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.08) 1px,
+                    transparent 1px),
+                linear-gradient(90deg,
+                    rgba(255, 255, 255, 0.08) 1px,
+                    transparent 1px),
+                radial-gradient(circle at 85% 20%,
+                    #e63f1a 0%,
+                    #b3160a 50%,
+                    #660800 100%);
+            background-size: 14px 14px, 14px 14px, 100% 100%;
+            box-shadow: 0 10px 28px rgba(133, 19, 27, 0.22);
+        }
+
+        .sambutan-foto-frame img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            object-fit: cover;
+            object-position: center top;
+            margin: 0;
+        }
+
+        /* BADGE NAMA DAN JABATAN */
+        .sambutan-badge-group {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0;
+            max-width: 100%;
+        }
+
+        .sambutan-badge {
+            background-color: #a82d15;
+            color: #ffffff;
+            border-radius: 2px;
+            font-family: 'Geist', sans-serif;
+            font-weight: 500;
+            line-height: 1.3;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .sambutan-badge-name {
+            font-size: clamp(8px, 0.85vw, 10.5px);
+            padding: 5px 12px;
+            letter-spacing: 0.1px;
+            width: calc(100% + 40px);
+            max-width: calc(100% + 40px);
+            white-space: normal;
+            overflow-wrap: break-word;
+            box-sizing: border-box;
+        }
+
+        .sambutan-badge-role {
+            font-size: clamp(8px, 0.85vw, 10px);
+            padding: 5px 8px;
+            letter-spacing: 0.2px;
+        }
+
+        /* KOTAK JUDUL PERSEGI */
+        .sambutan-title-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sambutan-title-box {
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            border: 2px solid #eb3223;
+            border-radius: clamp(12px, 3.5vw, 28px);
+            padding: clamp(10px, 2vw, 22px);
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(235, 50, 35, 0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: stretch;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .sambutan-title-gradient {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Geist', Arial, sans-serif;
+            font-size: clamp(15px, 2.7vw, 34px);
+            font-weight: 700;
+            line-height: 0.98;
+            letter-spacing: -0.7px;
+            text-transform: uppercase;
+            overflow-wrap: anywhere;
+            background: linear-gradient(to right,
+                    #800000 0%,
+                    #e13c23 50%,
+                    #800000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: #800000;
+        }
+
+        .sambutan-greeting {
+            font-size: clamp(16px, 1.9vw, 19px);
+            font-weight: 600;
+            color: #85131b;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .sambutan-welcome {
+            font-size: clamp(15px, 1.8vw, 18px);
+            font-weight: 600;
+            color: #85131b;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .sambutan-p {
+            color: #85131b;
+            font-size: clamp(14px, 1.45vw, 15.5px);
+            line-height: 1;
+            text-align: justify;
+            text-justify: inter-word;
+            margin: 0 0 16px 0;
+            font-weight: 400;
+        }
+
+        .sambutan-closing {
+            font-size: clamp(15px, 1.7vw, 17px);
+            font-weight: 600;
+            color: #85131b;
+            margin-top: 14px;
+        }
+
+        /* Penyesuaian Responsif Mobile */
+        @media (max-width: 680px) {
+            .sambutan-outer-wrapper {
+                padding: 16px 10px !important;
+            }
+
+            .sambutan-card {
+                border-radius: 22px !important;
+                padding: 20px 14px !important;
+            }
+
+            .sambutan-header {
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: stretch !important;
+                justify-content: flex-start !important;
+                gap: clamp(8px, 2.5vw, 14px) !important;
+                margin-bottom: 24px !important;
+            }
+
+            .sambutan-foto-col {
+                flex: 1 1 0 !important;
+                width: 50% !important;
+                max-width: 50% !important;
+                margin: 0 !important;
+                position: relative;
+            }
+
+
+            .sambutan-badge-group {
+                bottom: -10px;
+                left: 0;
+                width: 100%;
+                max-width: 100%;
+                gap: 0;
+                align-items: flex-start;
+                box-sizing: border-box;
+            }
+
+            .sambutan-badge {
+                font-size: clamp(7px, 1.7vw, 9px) !important;
+                padding: 3px 5px !important;
+                box-sizing: border-box;
+                max-width: 100%;
+            }
+
+            .sambutan-badge-name {
+                width: 100% !important;
+                max-width: 100% !important;
+                white-space: normal !important;
+                overflow-wrap: anywhere;
+                line-height: 1.2 !important;
+            }
+
+            .sambutan-badge-role {
+                width: auto !important;
+                max-width: 100% !important;
+                white-space: normal !important;
+                overflow-wrap: anywhere;
+                font-size: clamp(7px, 1.6vw, 8px) !important;
+                line-height: 1.2 !important;
+            }
+
+
+            .sambutan-title-col {
+                flex: 1 1 0 !important;
+                width: 50% !important;
+                max-width: 50% !important;
+                margin: 0 !important;
+            }
+
+
+            .sambutan-title-box {
+                height: 100% !important;
+                min-height: 0 !important;
+                padding: 8px !important;
+                border-radius: 12px !important;
+                align-items: stretch !important;
+                justify-content: center !important;
+            }
+
+            .sambutan-title-gradient {
+                width: 100% !important;
+                font-size: clamp(12px, 3.2vw, 19px) !important;
+                line-height: 1.02 !important;
+                letter-spacing: -0.4px !important;
+                overflow-wrap: anywhere !important;
+            }
+
+
+            .sambutan-p {
+                text-align: left;
+            }
+        }
+    </style>
+
+    <!-- CARD UTAMA GLOSSY / GLASSMORPHISM DI DEPAN BACKGROUND -->
+    <div class="sambutan-card"
+        style="max-width: 950px; margin: 0 auto; padding: clamp(24px, 4.2vw, 46px) clamp(20px, 3.8vw, 42px); background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(250, 252, 255, 0.72) 100%), url('https://cms.unpam.ac.id/storage/assets/pages/content/datYTwW06wUPvHpSzn5gUTjT84JAoWwPs16xJKDp.png') center top / cover no-repeat !important; backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border: 1px solid rgba(255, 255, 255, 0.85); border-radius: 32px; box-shadow: 0 20px 48px rgba(0, 0, 0, 0.09), 0 6px 18px rgba(133, 19, 27, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.95), inset 0 -1px 2px rgba(255, 255, 255, 0.3); box-sizing: border-box; color: #85131b;">
+
+        <!-- BARIS HEADER: FOTO KAPRODI & BOX JUDUL MERAH -->
+        <div class="sambutan-header"
+            style="display: flex; flex-direction: row; align-items: stretch; justify-content: space-between; gap: clamp(24px, 4vw, 50px); margin-bottom: clamp(28px, 4vw, 42px); flex-wrap: nowrap; width: 100%; box-sizing: border-box;">
+
+            <!-- KOLOM FOTO KAPRODI -->
+            <div class="sambutan-foto-col"
+                style="position: relative; flex: 0 0 auto; width: clamp(230px, 28vw, 290px); max-width: 100%; box-sizing: border-box; display: flex; flex-direction: column;">
+                <div class="sambutan-foto-frame"
+                    style="position: relative; width: 100%; border-top-left-radius: clamp(50px, 14vw, 130px); border-top-right-radius: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0; overflow: hidden; background-color: #8c1004; background-image: linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px), radial-gradient(circle at 85% 20%, #e63f1a 0%, #b3160a 50%, #660800 100%); background-size: 14px 14px, 14px 14px, 100% 100%; box-shadow: 0 10px 28px rgba(133, 19, 27, 0.22);">
+                    <img src="https://cms.unpam.ac.id/storage/assets/pages/content/B5M9UY8pR1Y5EyZTy5jv1T2PlkkfUlq06i6Zw3ei.png"
+                        alt="Assoc. Prof. Dr. H. M. Rezky Pahlawan, M.P., S.H., M.H."
+                        style="width: 145%; max-width: none; height: auto; display: block; margin-left: -28.5%; margin-top: -7.5%; margin-bottom: -1%;">
+                </div>
+
+                <!-- BADGE NAMA & JABATAN OVERLAY -->
+                <div class="sambutan-badge-group"
+                    style="position: absolute; bottom: -28px; left: 0; z-index: 5; display: flex; flex-direction: column; align-items: flex-start; padding: 0; gap: 0px; width: 100%;">
+
+                    <!-- BADGE NAMA -->
+                    <span class="sambutan-badge sambutan-badge-name"
+                        style="font-family: 'Geist', sans-serif; background: linear-gradient(to right, rgb(128,0,0) 0%, rgb(225,60,35) 50%, rgb(246, 73, 46) 100%); color: #ffffff; border-radius: 6px 6px 6px 0px; width: fit-content; max-width: 140%; white-space: nowrap; font-weight: 500; line-height: 1.2; letter-spacing: 0.3px; font-size: clamp(8px, 1.05vw, 10.5px); padding: 6px 12px; display: inline-block; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16); box-sizing: border-box;">
+                        ASSOC. PROF. DR. H. M. REZKY PAHLAWAN, M.P., S.H., M.H.
+                    </span>
+
+                    <!-- BADGE JABATAN -->
+                    <span class="sambutan-badge sambutan-badge-role"
+                        style="font-family: 'Geist', sans-serif; background: linear-gradient(to right, rgb(128,0,0) 0%, rgb(225,60,35) 50%, rgb(246, 73, 46) 100%); color: #ffffff; border-radius: 0px 0px 10px 10px; width: fit-content; font-weight: 500; line-height: 1.2; letter-spacing: 0.2px; font-size: clamp(7.5px, 0.95vw, 10px); padding: 5px 12px 6px 12px; display: inline-block; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16); box-sizing: border-box;">
+                        KAPRODI ILMU HUKUM S-1
+                    </span>
+
+                </div>
+            </div>
+
+            <!-- KOLOM KARTU JUDUL DENGAN OUTLINE MERAH -->
+
+            <!-- KOLOM KARTU JUDUL DENGAN OUTLINE MERAH -->
+            <div class="sambutan-title-col"
+                style="flex: 0 0 auto; width: clamp(230px, 28vw, 290px); max-width: 100%; display: flex; flex-direction: column; box-sizing: border-box;">
+
+                <div class="sambutan-title-box"
+                    style="width: 100%; height: 100%; min-height: 0; border: 2px solid #eb3223; border-radius: clamp(18px, 3.5vw, 28px); padding: clamp(10px, 1.5vw, 18px); background-color: #ffffff; box-shadow: 0 4px 20px rgba(235, 50, 35, 0.06); display: flex; flex-direction: column; justify-content: center; align-items: stretch; box-sizing: border-box; overflow: hidden;">
+
+                    <h2 class="sambutan-title-gradient"
+                        style="width: 100%; font-size: clamp(17px, 2.6vw, 30px); background: linear-gradient(to right, rgb(128,0,0) 0%, rgb(225,60,35) 50%, rgb(128,0,0) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: rgb(128,0,0); display: block; line-height: 1.02; font-weight: 700; margin: 0; padding: 0; text-transform: uppercase; letter-spacing: -0.7px; overflow-wrap: anywhere;">
+
+                        SAMBUTAN<br>
+                        KETUA<br>
+                        PROGRAM<br>
+                        STUDI<br>
+                        ILMU HUKUM<br>
+                        S-1
+
+                    </h2>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- KONTEN TEKS SAMBUTAN -->
+        <div class="sambutan-body" style="width: 100%; box-sizing: border-box;">
+
+            <div class="sambutan-greeting"
+                style="font-size: clamp(16px, 1.9vw, 19px); font-weight: 600; color: #85131b; margin-bottom: 12px; line-height: 1.4;">
+                Assalamu'alaikum Wr. Wb.
+            </div>
+
+            <div class="sambutan-welcome"
+                style="font-size: clamp(15px, 1.8vw, 18px); font-weight: 600; color: #85131b; line-height: 1; margin-bottom: 20px;">
+                Selamat datang di website Program Studi S1 Ilmu Hukum Universitas Pamulang.
+            </div>
+
+            <p class="sambutan-p"
+                style="color: #85131b; font-size: clamp(14px, 1.45vw, 15.5px); line-height: 1; text-align: justify; text-justify: inter-word; margin: 0 0 16px 0; font-weight: 400;">
+                Puji syukur ke hadirat Allah SWT atas segala rahmat dan karunia-Nya. Website ini kami hadirkan sebagai
+                media
+                informasi, komunikasi, dan pelayanan akademik yang dapat diakses oleh mahasiswa, calon mahasiswa,
+                alumni, mitra,
+                serta masyarakat. Melalui website ini, kami berkomitmen menyajikan informasi yang akurat, transparan,
+                dan mudah
+                diakses mengenai berbagai aktivitas Program Studi S1 Ilmu Hukum.
+            </p>
+
+            <p class="sambutan-p"
+                style="color: #85131b; font-size: clamp(14px, 1.45vw, 15.5px); line-height: 1; text-align: justify; text-justify: inter-word; margin: 0 0 16px 0; font-weight: 400;">
+                Program Studi S1 Ilmu Hukum Universitas Pamulang berkomitmen menyelenggarakan pendidikan hukum yang
+                berkualitas
+                dengan mengedepankan penguasaan ilmu, integritas, profesionalisme, dan nilai-nilai keadilan. Proses
+                pembelajaran
+                didukung oleh dosen yang kompeten, kurikulum yang relevan dengan perkembangan hukum, serta berbagai
+                kegiatan
+                penelitian, pengabdian kepada masyarakat, dan kemahasiswaan yang mendorong lahirnya lulusan yang unggul
+                dan
+                berdaya saing.
+            </p>
+
+            <p class="sambutan-p"
+                style="color: #85131b; font-size: clamp(14px, 1.45vw, 15.5px); line-height: 1; text-align: justify; text-justify: inter-word; margin: 0 0 16px 0; font-weight: 400;">
+                Kami berkomitmen mencetak lulusan hukum yang unggul, berintegritas, dan berdaya saing global. Keunggulan
+                ini
+                didukung oleh SDM berkualitas mulai dari Profesor, Associate Professor, Doktor, hingga praktisi handal.
+                Didukung
+                juga sarana prasarana yang luar biasa, serta suasana akademik yang kental melalui beragam program
+                penunjang di
+                luar kelas untuk memperkuat ketercapaian profil lulusan.
+            </p>
+
+            <p class="sambutan-p"
+                style="color: #85131b; font-size: clamp(14px, 1.45vw, 15.5px); line-height: 1; text-align: justify; text-justify: inter-word; margin: 0 0 20px 0; font-weight: 400;">
+                Terima kasih kepada seluruh pimpinan, dosen, mahasiswa, alumni, dan mitra atas dukungannya. Selamat
+                mengeksplorasi situs kami untuk mengenal lebih jauh komitmen dan kualitas pendidikan di Prodi S-1 Ilmu
+                Hukum.
+            </p>
+
+            <div class="sambutan-closing"
+                style="font-size: clamp(15px, 1.7vw, 17px); font-weight: 600; color: #85131b; margin-top: 14px;">
+                Wassalamu'alaikum Wr. Wb.
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
