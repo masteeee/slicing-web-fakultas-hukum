@@ -1,0 +1,264 @@
+<div class="visimisi-wrapper"
+    style="max-width: 1050px; margin: 0 auto; padding: clamp(20px, 4vw, 45px) clamp(16px, 3%, 30px); font-family: 'Geist', sans-serif; box-sizing: border-box; background-color: #ffffff; color: #85131b;">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&display=swap');
+
+        /* Pure CSS Without JavaScript */
+        .visimisi-wrapper {
+            font-family: 'Geist', sans-serif;
+        }
+
+        .vm-tab-input {
+            display: none !important;
+        }
+
+        .vm-tab-label {
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin: 0;
+            font-family: 'Geist', sans-serif;
+            font-size: clamp(18px, 2.3vw, 22px);
+            font-weight: 600;
+            color: #85131b;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .vm-tab-indicator {
+            display: none;
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3.5px;
+            background-color: #85131b;
+            border-radius: 2px;
+        }
+
+        .vm-content-box {
+            display: none;
+        }
+
+        /* Effect When Tab / Radio Button Is Selected (Checked) */
+        #vm-tab-visi:checked~.vm-nav-bar #vm-label-visi,
+        #vm-tab-misi:checked~.vm-nav-bar #vm-label-misi,
+        #vm-tab-tujuan:checked~.vm-nav-bar #vm-label-tujuan,
+        #vm-tab-sasaran:checked~.vm-nav-bar #vm-label-sasaran {
+            font-weight: 800;
+        }
+
+        #vm-tab-visi:checked~.vm-nav-bar #vm-ind-visi,
+        #vm-tab-misi:checked~.vm-nav-bar #vm-ind-misi,
+        #vm-tab-tujuan:checked~.vm-nav-bar #vm-ind-tujuan,
+        #vm-tab-sasaran:checked~.vm-nav-bar #vm-ind-sasaran {
+            display: block;
+        }
+
+        #vm-tab-visi:checked~.vm-main-body #vm-cnt-visi,
+        #vm-tab-misi:checked~.vm-main-body #vm-cnt-misi,
+        #vm-tab-tujuan:checked~.vm-main-body #vm-cnt-tujuan,
+        #vm-tab-sasaran:checked~.vm-main-body #vm-cnt-sasaran {
+            display: block;
+        }
+
+        /* Text and Photo Columns */
+        .vm-text-column {
+            flex: 1 1 100%;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .vm-photo-column {
+            display: none;
+            flex: 1 1 320px;
+            max-width: 440px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        /* Photo only shows in Vision tab, text column shares space */
+        #vm-tab-visi:checked~.vm-main-body .vm-text-column {
+            flex: 1 1 340px;
+            min-width: 280px;
+            width: auto;
+        }
+
+        #vm-tab-visi:checked~.vm-main-body .vm-photo-column {
+            display: block;
+        }
+
+        /* Custom bullet: solid maroon circle as reference image */
+        .vm-main-body ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .vm-main-body ul li {
+            position: relative;
+            padding-left: 28px;
+            color: #85131b !important;
+            font-family: 'Geist', sans-serif;
+        }
+
+        .vm-main-body ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background-color: #85131b;
+            flex-shrink: 0;
+        }
+    </style>
+
+    <!-- RADIO INPUTS FOR TABS -->
+    <input type="radio" id="vm-tab-visi" name="vm-tab-group" class="vm-tab-input" checked="">
+    <input type="radio" id="vm-tab-misi" name="vm-tab-group" class="vm-tab-input">
+    <input type="radio" id="vm-tab-tujuan" name="vm-tab-group" class="vm-tab-input">
+    <input type="radio" id="vm-tab-sasaran" name="vm-tab-group" class="vm-tab-input">
+
+    <!-- BREADCRUMB / TAB NAVIGATION -->
+    <div class="vm-nav-bar"
+        style="position: relative; width: 100%; border-bottom: 2px solid #f87171; margin-bottom: clamp(25px, 4.5vw, 45px); box-sizing: border-box;">
+        <div
+            style="display: flex; flex-direction: row; align-items: flex-end; gap: clamp(24px, 5.5vw, 60px); flex-wrap: wrap; padding-bottom: 0;">
+
+            <!-- TAB VISION -->
+            <div style="position: relative; display: inline-block; padding-bottom: 10px;">
+                <label for="vm-tab-visi" id="vm-label-visi" class="vm-tab-label">Vision</label>
+                <div id="vm-ind-visi" class="vm-tab-indicator"></div>
+            </div>
+
+            <!-- TAB MISSION -->
+            <div style="position: relative; display: inline-block; padding-bottom: 10px;">
+                <label for="vm-tab-misi" id="vm-label-misi" class="vm-tab-label">Mission</label>
+                <div id="vm-ind-misi" class="vm-tab-indicator"></div>
+            </div>
+
+            <!-- TAB OBJECTIVES -->
+            <div style="position: relative; display: inline-block; padding-bottom: 10px;">
+                <label for="vm-tab-tujuan" id="vm-label-tujuan" class="vm-tab-label">Objectives</label>
+                <div id="vm-ind-tujuan" class="vm-tab-indicator"></div>
+            </div>
+
+            <!-- TAB GOALS -->
+            <div style="position: relative; display: inline-block; padding-bottom: 10px;">
+                <label for="vm-tab-sasaran" id="vm-label-sasaran" class="vm-tab-label">Goals</label>
+                <div id="vm-ind-sasaran" class="vm-tab-indicator"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- AREA KONTEN UTAMA: 2 KOLOM (TEKS & GAMBAR GEDUNG) -->
+    <div class="vm-main-body"
+        style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: clamp(24px, 4vw, 50px); width: 100%; box-sizing: border-box;">
+
+        <!-- LEFT COLUMN: DESCRIPTION TEXT -->
+        <div class="vm-text-column">
+
+            <!-- 1. KONTEN VISI -->
+            <div id="vm-cnt-visi" class="vm-content-box">
+                <h2
+                    style="font-size: clamp(28px, 4vw, 38px); background: linear-gradient(to right, rgb(128,0,0) 0%, rgb(225,60,35) 50%, rgb(128,0,0) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: rgb(128,0,0); display: inline-block; line-height: 1.22; font-weight: 400; margin: 0 0 20px 0;">
+                    Vision of the Faculty of Law
+                </h2>
+                <p
+                    style="font-size: clamp(17px, 2.1vw, 20px); line-height: 1.62; color: #85131b; font-weight: 500; margin: 0; max-width: 500px;">
+                    "To Realize a Faculty of Law That Excels in the Development of Legal Science for Society at Large,
+                    Inspired by Religiosity and Humanism."
+                </p>
+            </div>
+
+            <!-- 2. KONTEN MISI -->
+            <div id="vm-cnt-misi" class="vm-content-box">
+                <h2
+                    style="font-size: clamp(28px, 4vw, 38px); background: linear-gradient(to right, rgb(128,0,0) 0%, rgb(225,60,35) 50%, rgb(128,0,0) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: rgb(128,0,0); display: inline-block; line-height: 1.22; font-weight: 400; margin: 0 0 20px 0;">
+                    Mission of the Faculty of Law
+                </h2>
+                <ul
+                    style="font-size: clamp(15px, 1.8vw, 17px); line-height: 1.75; color: #85131b; font-weight: 500; width: 100%;">
+                    <li style="margin-bottom: 16px;">To deliver outstanding and impactful legal education for society at
+                        large, grounded in the values of Religiosity and Humanism.</li>
+                    <li style="margin-bottom: 16px;">To conduct legal research that is relevant to the development of
+                        technology and industry.</li>
+                    <li style="margin-bottom: 16px;">To carry out innovative and integrative community service
+                        activities that enhance legal knowledge and awareness in society.</li>
+                    <li style="margin-bottom: 0;">To establish Tri Dharma Higher Education collaborations with various
+                        stakeholders both domestically and internationally.</li>
+                </ul>
+            </div>
+
+            <!-- 3. KONTEN TUJUAN -->
+            <div id="vm-cnt-tujuan" class="vm-content-box">
+                <h2
+                    style="font-size: clamp(28px, 4vw, 38px); background: linear-gradient(to right, rgb(128,0,0) 0%, rgb(225,60,35) 50%, rgb(128,0,0) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: rgb(128,0,0); display: inline-block; line-height: 1.22; font-weight: 400; margin: 0 0 20px 0;">
+                    Objectives of the Faculty of Law
+                </h2>
+                <ul
+                    style="font-size: clamp(15px, 1.8vw, 17px); line-height: 1.75; color: #85131b; font-weight: 500; width: 100%;">
+                    <li style="margin-bottom: 16px;">To enhance the quality of legal education through innovative,
+                        adaptive, and outcome-oriented learning aligned with the needs of the workforce.</li>
+                    <li style="margin-bottom: 16px;">To improve the quality of research conducted by faculty and
+                        students that contributes to the advancement of legal science and provides solutions to legal
+                        issues in society.</li>
+                    <li style="margin-bottom: 16px;">To optimize community service through legal counseling,
+                        consultation, and legal aid that benefits society and supports national development.</li>
+                    <li style="margin-bottom: 16px;">To enhance human resource quality by encouraging lecturers to
+                        pursue further studies, advance academic positions, obtain professional certifications, and
+                        develop continuous competencies.</li>
+                    <li style="margin-bottom: 0;">To expand national and international collaborations with universities,
+                        government institutions, the business sector, professional organizations, and law enforcement
+                        agencies to improve the quality of education, research, and community service.</li>
+                </ul>
+            </div>
+
+            <!-- 4. KONTEN SASARAN -->
+            <div id="vm-cnt-sasaran" class="vm-content-box">
+                <h2
+                    style="font-size: clamp(28px, 4vw, 38px); background: linear-gradient(to right, rgb(128,0,0) 0%, rgb(225,60,35) 50%, rgb(128,0,0) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: rgb(128,0,0); display: inline-block; line-height: 1.22; font-weight: 400; margin: 0 0 20px 0;">
+                    Goals of the Faculty of Law
+                </h2>
+                <ul
+                    style="font-size: clamp(15px, 1.8vw, 17px); line-height: 1.75; color: #85131b; font-weight: 500; width: 100%;">
+                    <li style="margin-bottom: 16px;">Achievement of a high-quality learning process through an
+                        Outcome-Based Education (OBE) curriculum, enhanced lecturer competence, and improved graduate
+                        achievement and competitiveness.</li>
+                    <li style="margin-bottom: 16px;">Increased quantity and quality of research by faculty and students,
+                        resulting in scientific publications, intellectual property, and policy recommendations in the
+                        field of law.</li>
+                    <li style="margin-bottom: 16px;">Improved quality and quantity of community service activities
+                        through legal counseling, legal consultation, legal aid, and community empowerment.</li>
+                    <li style="margin-bottom: 16px;">Realization of effective, efficient, transparent, and accountable
+                        faculty governance through strengthened quality assurance systems, improved human resource
+                        competencies, and optimized use of information technology.</li>
+                    <li style="margin-bottom: 0;">Increased number of strategic collaborations with universities, law
+                        enforcement agencies, government institutions, the business sector, and professional
+                        organizations, as well as enhanced reputation of the Faculty of Law through excellent
+                        accreditation, faculty and student achievements, and recognition at the national and
+                        international levels.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: BUILDING PHOTO (ONLY SHOWN IN VISION TAB) -->
+        <div class="vm-photo-column">
+            <div
+                style="width: 100%; border-radius: 28px; overflow: hidden; box-shadow: 0 12px 36px rgba(75, 22, 27, 0.16); background-color: #f7f7f7;">
+                <img src="https://cms.unpam.ac.id/storage/assets/pages/content/vkXRYf6Rz5uB5YauOZbQqLhHi4dkYLSOsmptRSbW.png"
+                    alt="Lobby of the Faculty of Law, Universitas Pamulang"
+                    style="width: 100%; height: auto; display: block; object-fit: cover; border-radius: 28px;">
+            </div>
+        </div>
+
+    </div>
+
+</div>
